@@ -23,16 +23,16 @@ model user {
   read      String[]
 }
 
-model book {
+model books {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  title        String   @unique
+  title        String   @unique 
   author       String
   cover        String
   genre        String[]
   about        String
   published    Int
   publisher    String
-  lentgh       String
+  length       String
   contents     String[]
   ISBN         Int
   contributor  String[]

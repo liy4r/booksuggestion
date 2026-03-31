@@ -50,7 +50,7 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 export const ModelName = {
   user: 'user',
-  book: 'book',
+  books: 'books',
   author: 'author'
 } as const
 
@@ -72,7 +72,7 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const BookScalarFieldEnum = {
+export const BooksScalarFieldEnum = {
   id: 'id',
   title: 'title',
   author: 'author',
@@ -81,7 +81,7 @@ export const BookScalarFieldEnum = {
   about: 'about',
   published: 'published',
   publisher: 'publisher',
-  lentgh: 'lentgh',
+  length: 'length',
   contents: 'contents',
   ISBN: 'ISBN',
   contributor: 'contributor',
@@ -90,7 +90,7 @@ export const BookScalarFieldEnum = {
   editor: 'editor'
 } as const
 
-export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
+export type BooksScalarFieldEnum = (typeof BooksScalarFieldEnum)[keyof typeof BooksScalarFieldEnum]
 
 
 export const AuthorScalarFieldEnum = {

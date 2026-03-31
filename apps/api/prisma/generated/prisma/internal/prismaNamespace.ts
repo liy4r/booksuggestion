@@ -391,7 +391,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   user: 'user',
-  book: 'book',
+  books: 'books',
   author: 'author'
 } as const
 
@@ -408,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "book" | "author"
+    modelProps: "user" | "books" | "author"
     txIsolationLevel: never
   }
   model: {
@@ -486,77 +486,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    book: {
-      payload: Prisma.$bookPayload<ExtArgs>
-      fields: Prisma.bookFieldRefs
+    books: {
+      payload: Prisma.$booksPayload<ExtArgs>
+      fields: Prisma.booksFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.bookFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload> | null
+          args: Prisma.booksFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.bookFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         findFirst: {
-          args: Prisma.bookFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload> | null
+          args: Prisma.booksFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.bookFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         findMany: {
-          args: Prisma.bookFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>[]
+          args: Prisma.booksFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>[]
         }
         create: {
-          args: Prisma.bookCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         createMany: {
-          args: Prisma.bookCreateManyArgs<ExtArgs>
+          args: Prisma.booksCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         delete: {
-          args: Prisma.bookDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         update: {
-          args: Prisma.bookUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         deleteMany: {
-          args: Prisma.bookDeleteManyArgs<ExtArgs>
+          args: Prisma.booksDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.bookUpdateManyArgs<ExtArgs>
+          args: Prisma.booksUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         upsert: {
-          args: Prisma.bookUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$bookPayload>
+          args: Prisma.booksUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booksPayload>
         }
         aggregate: {
-          args: Prisma.BookAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBook>
+          args: Prisma.BooksAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBooks>
         }
         groupBy: {
-          args: Prisma.bookGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookGroupByOutputType>[]
+          args: Prisma.booksGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BooksGroupByOutputType>[]
         }
         findRaw: {
-          args: Prisma.bookFindRawArgs<ExtArgs>
+          args: Prisma.booksFindRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         aggregateRaw: {
-          args: Prisma.bookAggregateRawArgs<ExtArgs>
+          args: Prisma.booksAggregateRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         count: {
-          args: Prisma.bookCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookCountAggregateOutputType> | number
+          args: Prisma.booksCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BooksCountAggregateOutputType> | number
         }
       }
     }
@@ -663,7 +663,7 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const BookScalarFieldEnum = {
+export const BooksScalarFieldEnum = {
   id: 'id',
   title: 'title',
   author: 'author',
@@ -672,7 +672,7 @@ export const BookScalarFieldEnum = {
   about: 'about',
   published: 'published',
   publisher: 'publisher',
-  lentgh: 'lentgh',
+  length: 'length',
   contents: 'contents',
   ISBN: 'ISBN',
   contributor: 'contributor',
@@ -681,7 +681,7 @@ export const BookScalarFieldEnum = {
   editor: 'editor'
 } as const
 
-export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
+export type BooksScalarFieldEnum = (typeof BooksScalarFieldEnum)[keyof typeof BooksScalarFieldEnum]
 
 
 export const AuthorScalarFieldEnum = {
@@ -846,7 +846,7 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   user?: Prisma.userOmit
-  book?: Prisma.bookOmit
+  books?: Prisma.booksOmit
   author?: Prisma.authorOmit
 }
 

@@ -23,10 +23,10 @@ export * from './enums.js';
  */
 export type user = Prisma.userModel
 /**
- * Model book
+ * Model books
  * 
  */
-export type book = Prisma.bookModel
+export type books = Prisma.booksModel
 /**
  * Model author
  * 
