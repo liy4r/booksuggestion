@@ -30,6 +30,7 @@ export type UserMinAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
+  read: string | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -38,6 +39,7 @@ export type UserMaxAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
+  read: string | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -57,6 +59,7 @@ export type UserMinAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
+  read?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -65,6 +68,7 @@ export type UserMaxAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
+  read?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -151,11 +155,11 @@ export type userGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type UserGroupByOutputType = {
   id: string
-  email: string
+  email: string | null
   firstName: string
   lastName: string
-  avatar: string
-  read: string[]
+  avatar: string | null
+  read: string
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -181,11 +185,11 @@ export type userWhereInput = {
   OR?: Prisma.userWhereInput[]
   NOT?: Prisma.userWhereInput | Prisma.userWhereInput[]
   id?: Prisma.StringFilter<"user"> | string
-  email?: Prisma.StringFilter<"user"> | string
+  email?: Prisma.StringNullableFilter<"user"> | string | null
   firstName?: Prisma.StringFilter<"user"> | string
   lastName?: Prisma.StringFilter<"user"> | string
-  avatar?: Prisma.StringFilter<"user"> | string
-  read?: Prisma.StringNullableListFilter<"user">
+  avatar?: Prisma.StringNullableFilter<"user"> | string | null
+  read?: Prisma.StringFilter<"user"> | string
 }
 
 export type userOrderByWithRelationInput = {
@@ -205,8 +209,8 @@ export type userWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.userWhereInput | Prisma.userWhereInput[]
   firstName?: Prisma.StringFilter<"user"> | string
   lastName?: Prisma.StringFilter<"user"> | string
-  avatar?: Prisma.StringFilter<"user"> | string
-  read?: Prisma.StringNullableListFilter<"user">
+  avatar?: Prisma.StringNullableFilter<"user"> | string | null
+  read?: Prisma.StringFilter<"user"> | string
 }, "id" | "email">
 
 export type userOrderByWithAggregationInput = {
@@ -226,78 +230,70 @@ export type userScalarWhereWithAggregatesInput = {
   OR?: Prisma.userScalarWhereWithAggregatesInput[]
   NOT?: Prisma.userScalarWhereWithAggregatesInput | Prisma.userScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"user"> | string
-  email?: Prisma.StringWithAggregatesFilter<"user"> | string
+  email?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
   firstName?: Prisma.StringWithAggregatesFilter<"user"> | string
   lastName?: Prisma.StringWithAggregatesFilter<"user"> | string
-  avatar?: Prisma.StringWithAggregatesFilter<"user"> | string
-  read?: Prisma.StringNullableListFilter<"user">
+  avatar?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
+  read?: Prisma.StringWithAggregatesFilter<"user"> | string
 }
 
 export type userCreateInput = {
   id?: string
-  email: string
+  email?: string | null
   firstName: string
   lastName: string
-  avatar: string
-  read?: Prisma.userCreatereadInput | string[]
+  avatar?: string | null
+  read: string
 }
 
 export type userUncheckedCreateInput = {
   id?: string
-  email: string
+  email?: string | null
   firstName: string
   lastName: string
-  avatar: string
-  read?: Prisma.userCreatereadInput | string[]
+  avatar?: string | null
+  read: string
 }
 
 export type userUpdateInput = {
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  read?: Prisma.userUpdatereadInput | string[]
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type userUncheckedUpdateInput = {
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  read?: Prisma.userUpdatereadInput | string[]
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type userCreateManyInput = {
   id?: string
-  email: string
+  email?: string | null
   firstName: string
   lastName: string
-  avatar: string
-  read?: Prisma.userCreatereadInput | string[]
+  avatar?: string | null
+  read: string
 }
 
 export type userUpdateManyMutationInput = {
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  read?: Prisma.userUpdatereadInput | string[]
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type userUncheckedUpdateManyInput = {
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
-  avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  read?: Prisma.userUpdatereadInput | string[]
-}
-
-export type StringNullableListFilter<$PrismaModel = never> = {
-  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
-  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
-  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  isEmpty?: boolean
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type userCountOrderByAggregateInput = {
@@ -315,6 +311,7 @@ export type userMaxOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  read?: Prisma.SortOrder
 }
 
 export type userMinOrderByAggregateInput = {
@@ -323,19 +320,16 @@ export type userMinOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  read?: Prisma.SortOrder
 }
 
-export type userCreatereadInput = {
-  set: string[]
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+  unset?: boolean
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
-}
-
-export type userUpdatereadInput = {
-  set?: string[]
-  push?: string | string[]
 }
 
 
@@ -367,11 +361,11 @@ export type $userPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    email: string
+    email: string | null
     firstName: string
     lastName: string
-    avatar: string
-    read: string[]
+    avatar: string | null
+    read: string
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -769,7 +763,7 @@ export interface userFieldRefs {
   readonly firstName: Prisma.FieldRef<"user", 'String'>
   readonly lastName: Prisma.FieldRef<"user", 'String'>
   readonly avatar: Prisma.FieldRef<"user", 'String'>
-  readonly read: Prisma.FieldRef<"user", 'String[]'>
+  readonly read: Prisma.FieldRef<"user", 'String'>
 }
     
 
