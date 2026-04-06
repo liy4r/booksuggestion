@@ -1,6 +1,6 @@
 import { prisma } from '../lib/prisma';
 
-export const addUser = async (
+export const registerService = async (
   firstName: string,
   lastName: string,
   read: string,

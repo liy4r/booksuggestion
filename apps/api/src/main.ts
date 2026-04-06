@@ -3,14 +3,17 @@ import * as path from 'path';
 // import { prisma } from './lib/prisma';
 // import axios from 'axios';
 import { router } from './routes';
-import { Middleware } from './middleware';
 
 const app = express();
 
 app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', Middleware, router);
+// app.get('./a', async (req, res) => {
+//   await prisma.books.findMany();
+//   res.send('a');
+// });
+app.use('/api', router);
 // app.get('/api', async (req, res) => {
 //   await prisma.books.findMany();
 //   res.send({ message: 'Welcome to api!' });

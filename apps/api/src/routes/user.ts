@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { register } from '../controllers/book';
+import { register } from '../controllers/user';
 
 export const router = Router();
 
-router.get('/user', register);
+router.post('/adduser', register);
