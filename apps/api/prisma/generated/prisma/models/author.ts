@@ -30,6 +30,7 @@ export type AuthorMinAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
+  password: string | null
 }
 
 export type AuthorMaxAggregateOutputType = {
@@ -38,6 +39,7 @@ export type AuthorMaxAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
+  password: string | null
 }
 
 export type AuthorCountAggregateOutputType = {
@@ -47,6 +49,7 @@ export type AuthorCountAggregateOutputType = {
   lastName: number
   avatar: number
   work: number
+  password: number
   _all: number
 }
 
@@ -57,6 +60,7 @@ export type AuthorMinAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
+  password?: true
 }
 
 export type AuthorMaxAggregateInputType = {
@@ -65,6 +69,7 @@ export type AuthorMaxAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
+  password?: true
 }
 
 export type AuthorCountAggregateInputType = {
@@ -74,6 +79,7 @@ export type AuthorCountAggregateInputType = {
   lastName?: true
   avatar?: true
   work?: true
+  password?: true
   _all?: true
 }
 
@@ -156,6 +162,7 @@ export type AuthorGroupByOutputType = {
   lastName: string
   avatar: string
   work: string[]
+  password: string
   _count: AuthorCountAggregateOutputType | null
   _min: AuthorMinAggregateOutputType | null
   _max: AuthorMaxAggregateOutputType | null
@@ -186,6 +193,7 @@ export type authorWhereInput = {
   lastName?: Prisma.StringFilter<"author"> | string
   avatar?: Prisma.StringFilter<"author"> | string
   work?: Prisma.StringNullableListFilter<"author">
+  password?: Prisma.StringFilter<"author"> | string
 }
 
 export type authorOrderByWithRelationInput = {
@@ -195,6 +203,7 @@ export type authorOrderByWithRelationInput = {
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
   work?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type authorWhereUniqueInput = Prisma.AtLeast<{
@@ -207,6 +216,7 @@ export type authorWhereUniqueInput = Prisma.AtLeast<{
   lastName?: Prisma.StringFilter<"author"> | string
   avatar?: Prisma.StringFilter<"author"> | string
   work?: Prisma.StringNullableListFilter<"author">
+  password?: Prisma.StringFilter<"author"> | string
 }, "id" | "email">
 
 export type authorOrderByWithAggregationInput = {
@@ -216,6 +226,7 @@ export type authorOrderByWithAggregationInput = {
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
   work?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   _count?: Prisma.authorCountOrderByAggregateInput
   _max?: Prisma.authorMaxOrderByAggregateInput
   _min?: Prisma.authorMinOrderByAggregateInput
@@ -231,6 +242,7 @@ export type authorScalarWhereWithAggregatesInput = {
   lastName?: Prisma.StringWithAggregatesFilter<"author"> | string
   avatar?: Prisma.StringWithAggregatesFilter<"author"> | string
   work?: Prisma.StringNullableListFilter<"author">
+  password?: Prisma.StringWithAggregatesFilter<"author"> | string
 }
 
 export type authorCreateInput = {
@@ -240,6 +252,7 @@ export type authorCreateInput = {
   lastName: string
   avatar: string
   work?: Prisma.authorCreateworkInput | string[]
+  password: string
 }
 
 export type authorUncheckedCreateInput = {
@@ -249,6 +262,7 @@ export type authorUncheckedCreateInput = {
   lastName: string
   avatar: string
   work?: Prisma.authorCreateworkInput | string[]
+  password: string
 }
 
 export type authorUpdateInput = {
@@ -257,6 +271,7 @@ export type authorUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
   work?: Prisma.authorUpdateworkInput | string[]
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type authorUncheckedUpdateInput = {
@@ -265,6 +280,7 @@ export type authorUncheckedUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
   work?: Prisma.authorUpdateworkInput | string[]
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type authorCreateManyInput = {
@@ -274,6 +290,7 @@ export type authorCreateManyInput = {
   lastName: string
   avatar: string
   work?: Prisma.authorCreateworkInput | string[]
+  password: string
 }
 
 export type authorUpdateManyMutationInput = {
@@ -282,6 +299,7 @@ export type authorUpdateManyMutationInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
   work?: Prisma.authorUpdateworkInput | string[]
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type authorUncheckedUpdateManyInput = {
@@ -290,6 +308,7 @@ export type authorUncheckedUpdateManyInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
   work?: Prisma.authorUpdateworkInput | string[]
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type authorCountOrderByAggregateInput = {
@@ -299,6 +318,7 @@ export type authorCountOrderByAggregateInput = {
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
   work?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type authorMaxOrderByAggregateInput = {
@@ -307,6 +327,7 @@ export type authorMaxOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type authorMinOrderByAggregateInput = {
@@ -315,6 +336,7 @@ export type authorMinOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type authorCreateworkInput = {
@@ -335,6 +357,7 @@ export type authorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   lastName?: boolean
   avatar?: boolean
   work?: boolean
+  password?: boolean
 }, ExtArgs["result"]["author"]>
 
 
@@ -346,9 +369,10 @@ export type authorSelectScalar = {
   lastName?: boolean
   avatar?: boolean
   work?: boolean
+  password?: boolean
 }
 
-export type authorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "avatar" | "work", ExtArgs["result"]["author"]>
+export type authorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "avatar" | "work" | "password", ExtArgs["result"]["author"]>
 
 export type $authorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "author"
@@ -360,6 +384,7 @@ export type $authorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     lastName: string
     avatar: string
     work: string[]
+    password: string
   }, ExtArgs["result"]["author"]>
   composites: {}
 }
@@ -758,6 +783,7 @@ export interface authorFieldRefs {
   readonly lastName: Prisma.FieldRef<"author", 'String'>
   readonly avatar: Prisma.FieldRef<"author", 'String'>
   readonly work: Prisma.FieldRef<"author", 'String[]'>
+  readonly password: Prisma.FieldRef<"author", 'String'>
 }
     
 
