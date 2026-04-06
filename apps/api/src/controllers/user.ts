@@ -1,5 +1,9 @@
 import type { Request, Response } from 'express';
-import { loginService, mybookService, registerService } from '../services/user';
+import {
+  loginService,
+  booksearchService,
+  registerService,
+} from '../services/user';
 
 export const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -34,11 +38,8 @@ export const mybook = async (req: Request, res: Response) => {
   if (!q) {
     res.status(400).json({ message: 'Bad request!!' });
   }
-  console.log('BODY:', req.body);
-  console.log('Q:', q);
-  console.log('TYPE OF Q:', typeof q);
   try {
-    const book = await mybookService(q);
+    const book = await booksearchService(q);
     res.json({ message: 'Success', data: { book } });
   } catch (e: any) {
     res.status(400).send({ message: e.message });

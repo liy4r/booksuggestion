@@ -37,7 +37,7 @@ export const loginService = async (email: string, password: string) => {
 
 export const logoutService = async () => {};
 
-export const mybookService = async (query: string) => {
+export const booksearchService = async (query: string) => {
   console.log('SERVICE RECEIVED:', query, typeof query); // 👈 debug
 
   const response = await axios.get(
