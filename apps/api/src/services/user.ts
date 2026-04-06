@@ -38,8 +38,6 @@ export const loginService = async (email: string, password: string) => {
 export const logoutService = async () => {};
 
 export const booksearchService = async (query: string) => {
-  console.log('SERVICE RECEIVED:', query, typeof query); // 👈 debug
-
   const response = await axios.get(
     `https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURIComponent(
       query

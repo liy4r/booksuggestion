@@ -4,7 +4,7 @@ import { getSecret } from './utils/utils';
 
 export const AuthMiddleware = (req: any, res: Response, next: NextFunction) => {
   const authorization = req.headers.authorization;
-  console.log('a');
+
   const token = authorization?.split(' ')[1];
 
   if (!token) {
