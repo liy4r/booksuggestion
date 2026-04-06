@@ -30,7 +30,6 @@ export type UserMinAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
-  read: string | null
   password: string | null
 }
 
@@ -40,7 +39,6 @@ export type UserMaxAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
-  read: string | null
   password: string | null
 }
 
@@ -62,7 +60,6 @@ export type UserMinAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
-  read?: true
   password?: true
 }
 
@@ -72,7 +69,6 @@ export type UserMaxAggregateInputType = {
   firstName?: true
   lastName?: true
   avatar?: true
-  read?: true
   password?: true
 }
 
@@ -165,7 +161,7 @@ export type UserGroupByOutputType = {
   firstName: string | null
   lastName: string | null
   avatar: string | null
-  read: string | null
+  read: string[]
   password: string
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
@@ -196,7 +192,7 @@ export type userWhereInput = {
   firstName?: Prisma.StringNullableFilter<"user"> | string | null
   lastName?: Prisma.StringNullableFilter<"user"> | string | null
   avatar?: Prisma.StringNullableFilter<"user"> | string | null
-  read?: Prisma.StringNullableFilter<"user"> | string | null
+  read?: Prisma.StringNullableListFilter<"user">
   password?: Prisma.StringFilter<"user"> | string
 }
 
@@ -219,7 +215,7 @@ export type userWhereUniqueInput = Prisma.AtLeast<{
   firstName?: Prisma.StringNullableFilter<"user"> | string | null
   lastName?: Prisma.StringNullableFilter<"user"> | string | null
   avatar?: Prisma.StringNullableFilter<"user"> | string | null
-  read?: Prisma.StringNullableFilter<"user"> | string | null
+  read?: Prisma.StringNullableListFilter<"user">
   password?: Prisma.StringFilter<"user"> | string
 }, "id" | "email">
 
@@ -245,7 +241,7 @@ export type userScalarWhereWithAggregatesInput = {
   firstName?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
   lastName?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
   avatar?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
-  read?: Prisma.StringNullableWithAggregatesFilter<"user"> | string | null
+  read?: Prisma.StringNullableListFilter<"user">
   password?: Prisma.StringWithAggregatesFilter<"user"> | string
 }
 
@@ -255,7 +251,7 @@ export type userCreateInput = {
   firstName?: string | null
   lastName?: string | null
   avatar?: string | null
-  read?: string | null
+  read?: Prisma.userCreatereadInput | string[]
   password: string
 }
 
@@ -265,7 +261,7 @@ export type userUncheckedCreateInput = {
   firstName?: string | null
   lastName?: string | null
   avatar?: string | null
-  read?: string | null
+  read?: Prisma.userCreatereadInput | string[]
   password: string
 }
 
@@ -274,7 +270,7 @@ export type userUpdateInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  read?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.userUpdatereadInput | string[]
   password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -283,7 +279,7 @@ export type userUncheckedUpdateInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  read?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.userUpdatereadInput | string[]
   password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -293,7 +289,7 @@ export type userCreateManyInput = {
   firstName?: string | null
   lastName?: string | null
   avatar?: string | null
-  read?: string | null
+  read?: Prisma.userCreatereadInput | string[]
   password: string
 }
 
@@ -302,7 +298,7 @@ export type userUpdateManyMutationInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  read?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.userUpdatereadInput | string[]
   password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -311,8 +307,16 @@ export type userUncheckedUpdateManyInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  read?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  read?: Prisma.userUpdatereadInput | string[]
   password?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
 }
 
 export type userCountOrderByAggregateInput = {
@@ -331,7 +335,6 @@ export type userMaxOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
-  read?: Prisma.SortOrder
   password?: Prisma.SortOrder
 }
 
@@ -341,13 +344,21 @@ export type userMinOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
-  read?: Prisma.SortOrder
   password?: Prisma.SortOrder
+}
+
+export type userCreatereadInput = {
+  set: string[]
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
   unset?: boolean
+}
+
+export type userUpdatereadInput = {
+  set?: string[]
+  push?: string | string[]
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -389,7 +400,7 @@ export type $userPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     firstName: string | null
     lastName: string | null
     avatar: string | null
-    read: string | null
+    read: string[]
     password: string
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -788,7 +799,7 @@ export interface userFieldRefs {
   readonly firstName: Prisma.FieldRef<"user", 'String'>
   readonly lastName: Prisma.FieldRef<"user", 'String'>
   readonly avatar: Prisma.FieldRef<"user", 'String'>
-  readonly read: Prisma.FieldRef<"user", 'String'>
+  readonly read: Prisma.FieldRef<"user", 'String[]'>
   readonly password: Prisma.FieldRef<"user", 'String'>
 }
     
