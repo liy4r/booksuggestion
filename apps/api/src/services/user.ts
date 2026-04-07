@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { getSecret } from '../utils/utils';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
+import { read } from 'node:fs';
 
 export const registerService = async (password: string, email: string) => {
   const user = await prisma.user.findUnique({

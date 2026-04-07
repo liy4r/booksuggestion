@@ -66,6 +66,7 @@
     "bcrypt": "^6.0.0",
     "dotenv": "^17.3.1",
     "express": "^4.21.2",
+    "express-middleware": "^3.4.2",
     "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
