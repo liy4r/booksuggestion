@@ -1,24 +1,24 @@
-import { ApolloServer } from '@apollo/server';
-import { Types as AuthorTypes } from './schema/author';
+// import { ApolloServer } from '@apollo/server';
+// import {
+//   Types as AuthorTypes,
+//   Queries as AuthorQueries,
+// } from './schema/author';
+// import { authorQueries } from './resolvers/queries/author';
 
-import { authorQueries } from '../apollo/resolvers/queries/author';
+// export const authorApolloServer = new ApolloServer({
+//   typeDefs: [
+//     AuthorTypes,
+//     AuthorQueries && AuthorQueries.trim()
+//       ? `type Query { ${AuthorQueries} }`
+//       : '',
+//     `type Mutation {}`,
+//   ]
+//     .filter(Boolean)
+//     .join('\n\n'),
 
-export const userApolloServer = new ApolloServer({
-  typeDefs: `
-    ${AuthorTypes}
+//   resolvers: {
+//     Query: { ...authorQueries },
 
-    type Query {
-
-    }
-    
-    type Mutation {
-
-    }
-  `,
-
-  resolvers: {
-    Query: { ...authorQueries },
-
-    Mutation: {},
-  },
-});
+//     Mutation: {},
+//   },
+// });

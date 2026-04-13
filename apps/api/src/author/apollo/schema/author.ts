@@ -13,5 +13,5 @@ export const Queries = `
 author(id: String): author
 `;
 
-export const Mutations = `
-`;
+// export const Mutations = `
+// `;

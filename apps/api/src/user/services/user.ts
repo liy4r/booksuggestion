@@ -1,9 +1,8 @@
-import { prisma } from '../lib/prisma';
+import { prisma } from '../../lib/prisma';
 import bcrypt from 'bcrypt';
-import { getSecret } from '../utils/utils';
+import { getSecret } from '../../utils/utils';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
-import { read } from 'node:fs';
 
 export const registerService = async (password: string, email: string) => {
   const user = await prisma.user.findUnique({
@@ -48,6 +47,7 @@ export const booksearchService = async (query: string) => {
   const items = response.data.items || [];
 
   return items.map((item: any) => ({
+    id: item.id,
     title: item.volumeInfo.title,
     author: item.volumeInfo.authors?.[0],
     cover: item.volumeInfo.imageLinks?.thumbnail,

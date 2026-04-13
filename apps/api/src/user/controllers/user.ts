@@ -4,6 +4,7 @@ import {
   booksearchService,
   registerService,
 } from '../services/user';
+// import { prisma } from '../lib/prisma';
 
 export const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;

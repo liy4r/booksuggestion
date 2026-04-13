@@ -20,7 +20,7 @@ model user {
   firstName String?
   lastName  String?
   avatar    String?
-  read      String[]
+  readBook  String[]
   password String
 }
 
